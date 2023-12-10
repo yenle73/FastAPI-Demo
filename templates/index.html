@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/styles.css') }}">
+    <title>FastAPI Model</title>
+</head>
+<body>
+    <div class="container">
+        <h1>FastAPI Model</h1>
+        <form method="post" action="/ask" enctype="multipart/form-data" id="upload-form">
+            <label for="text">Text</label>
+            <input type="text" name="text" id="text" required>
+            <br>
+            <label for="image">Choose Image</label>
+            <div class="image-upload">
+                <input type="file" name="image" id="image-upload" accept="image/*" required onchange="previewImage()">
+                <img id="preview-image" src="/static/images/placeholder.jpg" alt="Uploaded Image">
+            </div>
+            <br>
+            <button type="submit">Ask</button>
+        </form>
+        <div class="result">
+            {% if answer %}
+                <h2>Answer:</h2>
+                <p>{{ answer }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function previewImage() {
+            var input = document.getElementById('image-upload');
+            var preview = document.getElementById('preview-image');
+            
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
