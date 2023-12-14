@@ -28,7 +28,8 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from model import model_pipeline
-import base64
+import os
+import uvicorn
 
 
 app = FastAPI()
@@ -48,5 +49,19 @@ async def ask(request: Request, text: str = Form(...), image: UploadFile = File(
     content = image.file.read()
     image = Image.open(io.BytesIO(content))
 
+    temp_image_path = "static/images/uploaded_image.jpg"
+    image.save(temp_image_path)
+
     result = model_pipeline(text, image)
-    return templates.TemplateResponse("index.html", {"request": request, "answer": result})
+    # return templates.TemplateResponse("index.html", {"request": request, "answer": result})
+    return templates.TemplateResponse("index.html", {"request": request, "answer": result, "image_path": temp_image_path, "text": text})
+
+def process_upload(image: UploadFile):
+    return "/static/images/uploaded_image.jpg"
+
+if __name__ == "__main__":
+    temp_image_path = "static/images/uploaded_image.jpg"
+    if os.path.exists(temp_image_path):
+        os.remove(temp_image_path)
+
+    uvicorn.run('main:app', reload=True)
