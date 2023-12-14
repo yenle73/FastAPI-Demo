@@ -5,27 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/styles.css') }}">
-    <title>FastAPI Model</title>
+    <title>Vison and Language Transformer Application using FastAPI</title>
 </head>
 <body>
-    <div class="container">
-        <h1>FastAPI Model</h1>
+    <div class="container" style="text-align: left;">
+        <h1 style="text-align: center;">Visual Question Answering</h1>
+        <h2 style="text-align: center;">Using FastAPI</h2>
         <form method="post" action="/ask" enctype="multipart/form-data" id="upload-form">
-            <label for="text">Text</label>
+            <label for="text" >Text</label>
             <input type="text" name="text" id="text" required>
             <br>
             <label for="image">Choose Image</label>
             <div class="image-upload">
                 <input type="file" name="image" id="image-upload" accept="image/*" required onchange="previewImage()">
-                <img id="preview-image" src="/static/images/placeholder.jpg" alt="Uploaded Image">
+                <img width=100% id="preview-image" src="/static/images/placeholder.jpg" alt="Uploaded Image">
             </div>
             <br>
-            <button type="submit">Ask</button>
+            <div style="text-align: center;">
+                <button type="submit">Generate</button>
+            </div>
         </form>
         <div class="result">
             {% if answer %}
-                <h2>Answer:</h2>
-                <p>{{ answer }}</p>
+                <hr class="hr">
+                <h2>Result</h2>
+                <h3 style="text-align: left;"><span style="color: #00a013;">Image: </span></h3>
+                <img width=100% id="display-image" src="/static/images/uploaded_image.jpg">
+                <h3 style="text-align: left;" > <span style="color: #00a013;">Question:</span> {{ text }}</h3>
+                <h3 style="text-align: left;"><span style="color: #3498db;">Answer:</span> {{ answer }}</h3>
             {% endif %}
         </div>
     </div>
@@ -45,3 +52,5 @@
     </script>
 </body>
 </html>
+
+
