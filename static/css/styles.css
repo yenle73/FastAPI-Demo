@@ -29,11 +29,14 @@ label {
     color: #555;
 }
 
-input {
-    margin-bottom: 16px;
-    padding: 8px;
-    width: calc(100% - 16px);
-    box-sizing: border-box;
+input[type="text"] {
+    padding: 10px; /* Add padding for a comfortable input area */
+    border: 1px solid #3498db; /* Add a border with a light blue color */
+    border-radius: 5px; /* Add rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    width: 100%; /* Make the input box expand to the full width of its container */
+    margin-bottom: 15px; /* Add some space below the input */
+    font-size: 16px; /* Set the font size */
 }
 
 .button-wrapper {
@@ -51,7 +54,7 @@ input {
 
 .custom-file-upload {
     margin-top: 10px;
-    background-color: #4caf50;
+    background-color: #4895EF;
     color: #fff;
     border: none;
     padding: 10px;
@@ -61,25 +64,97 @@ input {
 }
 
 .custom-file-upload{
-    background-color: #45a049;
+    background-color: #4895EF;
 }
 
 button {
-    background-color: #4caf50;
+    background-color: #4895EF;
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: 15px 20px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-size: 16px; 
+}
+
+/* CSS */
+.button-17 {
+  align-items: center;
+  appearance: none;
+  background-color: #4895EF;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
+
+.button-17:hover {
+  background: #F6F9FE;
+  color: #174ea6; 
+}
+
+.button-17:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.button-17:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+.button-17:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.button-17:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+}
+
+.button-17:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.button-17:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+}
+
+.button-17:disabled {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #4895EF;
 }
 
 .result {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0;
+    color: #333;
 }
 
 img {
@@ -92,4 +167,12 @@ img {
 
 p {
     color: #555;
+}
+
+hr {
+    width: 60%;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 0.5;
+    border-color: #c2c2c2;
 }
